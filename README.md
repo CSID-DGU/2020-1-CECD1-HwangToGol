@@ -9,5 +9,5 @@ moving y z for each second
 </div>
 
 ## index.html
-spreading water using ocean-api
+spreading water using unpkg
 <img src="https://user-images.githubusercontent.com/37530599/79327220-11714000-7f4f-11ea-8521-bf87a64989d7.png" width="" height=""></img>
