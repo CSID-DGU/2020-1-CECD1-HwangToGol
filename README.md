@@ -1,6 +1,10 @@
 # webvr
 building virtual reality experiences with Aframe
 
+## local서버에 띄우는 법
+https://blog.naver.com/hl2ozs/221910095122
+
+
 ## main.html
 moving y z for each second
 <div>
