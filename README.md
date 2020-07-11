@@ -1,6 +1,10 @@
 # webvr
 building virtual reality experiences with Aframe
 
+## local서버에 띄우는 법
+https://blog.naver.com/hl2ozs/221910095122
+
+
 ## main.html
 moving y z for each second
 <div>
@@ -9,5 +13,7 @@ moving y z for each second
 </div>
 
 ## index.html
-spreading water using ocean-api
-<img src="https://user-images.githubusercontent.com/37530599/79327220-11714000-7f4f-11ea-8521-bf87a64989d7.png" width="" height=""></img>
+spreading water using unpkg
+
+how to run in localhost method 
+<img src="https://user-images.githubusercontent.com/37530599/79334755-daedf200-7f5b-11ea-9072-def2bbea6b0e.png" width="" height=""></img>
