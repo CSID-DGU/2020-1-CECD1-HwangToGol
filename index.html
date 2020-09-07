@@ -13,17 +13,22 @@
       scale="-1 1 1"></a-sky>  
 
       <!--ground--> 
-      <a-plane src="image/ground.jpg" position="0 -4 0" width="50" height=50" repeat="10 10" rotation="-90 0 0" ></a-plane>
-     
+      <a-plane src="image/ground.jpg" position="0 -3 0" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      <a-plane src="image/ground.jpg" position="50 -3 0" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      <a-plane src="image/ground.jpg" position="0 -3 50" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      <a-plane src="image/ground.jpg" position="-50 -3 0" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      <a-plane src="image/ground.jpg" position="-50 -3 -50" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      <a-plane src="image/ground.jpg" position="0 -3 -50" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      <a-plane src="image/ground.jpg" position="50 -3 -50" width="50" height="50" repeat="10 10" rotation="-90 0 0" ></a-plane>
+      
       <!--gate-->
       <a-entity id="gate" geometry="primitive:box; width:10; height:10; depth:2"
         rotation="0 10 0"
-        material="color: white; transparent: true; wireframe:true; wireframe-linewidth:100"
+        material="color: black; transparent: true; wireframe:true; wireframe-linewidth:1000"
         position="-10 -4 -20"></a-entity>
 
       <!--ball-->
       <a-entity id="ball" geometry="primitive: sphere; radius: 1.5"
-        light="type: point; color: white; intensity: 2"
         material="color: white; shader: flat; src: url(image/golf.png)"
         position="0 -1.5 -10"></a-entity>
 
