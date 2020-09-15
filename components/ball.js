@@ -7,7 +7,7 @@ AFRAME.registerComponent('ball', {  //component의 속성 정의
     },                    
 
     init: function () {
-        console.log(this.id);
+        console.log("log 확인 : ", this.id);
     },          //component가 처음 초기화될 때 호출
     update: function () {},        //component가 처음 초기화될때, component의 속성이 변경될 때 호출 : entity 수정할 때 사용
     tick: function () {},          //render loop가 호출될 때 마다 호출  : 계속되는 변화를 체크할 때 사용 
