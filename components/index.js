@@ -11,6 +11,7 @@ const animate = () => {
   curPosition.z -= variation;
 
   $('#ball').setAttribute('position',curPosition);
+  $('#gate').setAttribute('position', curPosition);
 
   requestAnimationFrame(animate);
 };
