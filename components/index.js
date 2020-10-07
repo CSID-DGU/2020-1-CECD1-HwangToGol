@@ -3,7 +3,7 @@ const $ = (query) => body.querySelector(query);
 
 
 const animate = () => {
-  const variation = Math.sin(Date.now() / 500); //how many milliseconds pass
+  const variation = Math.sin(Date.now() / 100); //how many milliseconds pass
 
   let curPosition = $('#ball').getAttribute('position'); //ball's current position
   
@@ -11,6 +11,7 @@ const animate = () => {
   curPosition.z -= variation;
 
   $('#ball').setAttribute('position',curPosition);
+  $('#gate').setAttribute('position', curPosition);
 
   requestAnimationFrame(animate);
 };
