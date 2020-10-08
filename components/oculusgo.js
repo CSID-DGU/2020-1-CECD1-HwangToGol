@@ -1,4 +1,3 @@
-
 var shallThrow = false;
 var hasThrown = false;
 var ball;
@@ -29,12 +28,12 @@ AFRAME.registerComponent('input-listener', {
 
         ball.body.applyLocalImpulse( new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0));
     
-        ball.body.velocity.set(0, 0, 0);
-            ball.body.angularVelocity.set(0, 0, 0);
-            ball.body.quaternion.set(0, 0, 0, 1);
+        //ball.body.velocity.set(0, 0, 0);
+        //    ball.body.angularVelocity.set(0, 0, 0);
+        //    ball.body.quaternion.set(0, 0, 0, 1);
             ball.body.position.set(position.x, 0.0, position.z);
-            let velocity = currentPosition.vsub(lastPosition).scale(1/delta);
-            ball.body.applyLocalImpulse(velocity.scale(50), new CANNON.Vec3(0, 0, 0));
+        //    let velocity = currentPosition.vsub(lastPosition).scale(1/delta);
+        //    ball.body.applyLocalImpulse(velocity.scale(50), new CANNON.Vec3(0, 0, 0));
     
         this.el.txt2.setAttribute("value","Controller_Point: "+ "X =" + position.x.toFixed(2)+", Y ="+position.y.toFixed(2));
       }
