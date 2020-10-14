@@ -31,7 +31,7 @@ AFRAME.registerComponent('input-listener', {
         //ball.body.velocity.set(0, 0, 0);
         //    ball.body.angularVelocity.set(0, 0, 0);
         //    ball.body.quaternion.set(0, 0, 0, 1);
-            ball.body.position.set(position.x, 0.0, position.z);
+       // ball.body.position.set(position.x, 1.0, position.z);
         //    let velocity = currentPosition.vsub(lastPosition).scale(1/delta);
         //    ball.body.applyLocalImpulse(velocity.scale(50), new CANNON.Vec3(0, 0, 0));
     

@@ -1,4 +1,3 @@
-
 var shallThrow = false;
 var hasThrown = false;
 var ball;
