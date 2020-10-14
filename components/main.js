@@ -13,6 +13,8 @@ function throwBall(delta) {
     ball.body.applyLocalImpulse(velocity.scale(50), new CANNON.Vec3(0, 0, 0));
 }
 
+console.log("main.js");
+
 AFRAME.registerComponent('throwing-hand', {
    
         dependencies:['dynamic-body','laser-controls'],
