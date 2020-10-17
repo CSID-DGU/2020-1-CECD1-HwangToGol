@@ -1,58 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-          body{
-            background-image: url(/image/gateball.jpg);
-            background-repeat : no-repeat;
-		        background-size : 100% 100%;
-            }
-          .title-style { 
-            font-size: xx-large; 
-            position: absolute;
-            left: 45%;
-            top: 20%;
-            border: none;
-            background: transparent;
-            }
-          .button-box{ 
-            font-size: x-large;
-            border-radius: 40px 40px 40px 40px;
-            }
-          div#StartGameBtn{
-              position: fixed;
-              left: 570px;
-              top: 550px;
-              border-top-left-radius: 15px; 
-              border-bottom-left-radius: 15px;
-              font-size: x-large;
-            }
-          div#EndGameBtn{
-              position: fixed;
-              left: 570px;
-              top: 630px; 
-              border-top-left-radius: 5px; 
-              border-bottom-left-radius: 5px; 
-              font-size: large;
-            }
 
-        </style>
-    </head>
-    <body>
-      <script>
-      
-      function goGameMain() {
-        location.href = "gamemain.html"
-      }
+<head>
+  <style>
+    body {
+      background-image: url(/image/gateball.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
 
-      </script>
+    .title-style {
+      font-size: xx-large;
+      position: absolute;
+      left: 45%;
+      top: 20%;
+      border: none;
+      background: transparent;
+    }
 
-      <input type="text" name="titleTxt" value="Game Title" class="title-style">
-      <div id = "StartGameBtn">
-        <input type="button" name="startBtn" value="Start Game" style="width: 300px; height: 60px;" class="button-box" onclick="goGameMain()">
-      </div>
-      <div id = "EndGameBtn">
-        <input type="button" name="endBtn" value="End Game" style="width: 300px; height: 60px;" class="button-box">
-      </div>
-    </body>
+    .button-box {
+      font-size: x-large;
+      border-radius: 40px 40px 40px 40px;
+    }
+
+    div#StartGameBtn {
+      position: fixed;
+      left: 570px;
+      top: 550px;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      font-size: x-large;
+    }
+
+    div#EndGameBtn {
+      position: fixed;
+      left: 570px;
+      top: 630px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      font-size: large;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+
+    function goGameMain() {
+      location.href = "gamemain.html"
+    }
+  </script>
+
+  <input type="text" name="titleTxt" value="Game Title" class="title-style">
+  <div id="StartGameBtn">
+    <input type="button" name="startBtn" value="Start Game" style="width: 300px; height: 60px;" class="button-box"
+      onclick="goGameMain()">
+  </div>
+  <div id="EndGameBtn">
+    <input type="button" name="endBtn" value="End Game" style="width: 300px; height: 60px;" class="button-box">
+  </div>
+</body>
+
 </html>
