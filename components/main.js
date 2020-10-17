@@ -6,6 +6,7 @@ var currentPosition = new CANNON.Vec3(0, 0, 0);
 var hasPrepared = false;
 var ctlL;
 var ctlR;
+
 function throwBall(delta) {
     hasThrown = true;
     hasPrepared = false;
