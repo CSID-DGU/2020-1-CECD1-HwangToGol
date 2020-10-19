@@ -1,9 +1,6 @@
 var shallThrow = false;
 var hasThrown = false;
 var ball;
-var gate;
-var lastPosition = new CANNON.Vec3(0, 0, 0);
-var currentPosition = new CANNON.Vec3(0, 0, 0);
 var hasPrepared = false;
 
 AFRAME.registerComponent('input-listener', {
@@ -17,6 +14,11 @@ AFRAME.registerComponent('input-listener', {
     init:function () {
       this.el.txt = document.getElementById("txt");
       this.el.txt2 = document.getElementById("txt2");
+      
+      this.el.addEventListener('triggerup', function (e) {
+        if (!shallThrow) { shallThrow = true};
+      });
+
       //Stick Moved
       this.el.addEventListener('axismove',function(event){
         this.txt.setAttribute("value", "Stick  x:"+event.detail.axis[0].toFixed(2)+", y:"+event.detail.axis[1].toFixed(2));
@@ -41,40 +43,6 @@ AFRAME.registerComponent('input-listener', {
     }
 });
 
-AFRAME.registerComponent('gateball', {
-  //Initialization
-  init:function () {
-   
-  },
-  update: function () {
-      var position=this.el.position;
-      
-      if(position.z == -3 ){
-        this.el.txt2.setAttribute("value","success");
-      }
-      else{
-        this.el.txt2.setAttribute("value",position.x +" "+position.y);
-      }
-    
-  }
-});
 window.onload = function () {
-    ball = document.getElementById('ball');
-    gate = document.getElementById('gate');
-
-    const body = document.querySelector('a-scene');
-    const $ = (query) => body.querySelector(query);
-
-    const animate = () => {
-      let ballPosition = $('#ball').getAttribute('position'); //ball's current position
-      let gatePosition = $('#gate').getAttribute('position'); //ball's current position
-      
-      if(ballPosition.x == gatePosition.x){ //gate 에 공이 들어가면
-
-      }
-      $('#ball').setAttribute('position',curPosition);
-      $('#gate').setAttribute('position', curPosition);
-
-      requestAnimationFrame(animate);
-    };
-}    
+  ball = document.getElementById('ball');
+}  

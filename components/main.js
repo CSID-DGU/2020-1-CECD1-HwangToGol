@@ -6,6 +6,7 @@ var currentPosition = new CANNON.Vec3(0, 0, 0);
 var hasPrepared = false;
 var ctlL;
 var ctlR;
+
 function throwBall(delta) {
     hasThrown = true;
     hasPrepared = false;
@@ -17,7 +18,7 @@ console.log("main.js");
 
 AFRAME.registerComponent('throwing-hand', {
    
-        dependencies:['dynamic-body','laser-controls'],
+    dependencies:['dynamic-body','laser-controls'],
     init: function () {
         this.el.txt = document.getElementById("txt");
           this.el.txt2 = document.getElementById("txt2");
