@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <script src="/components/stage1.js"></script>
+    <script>
+        var chance1 = 2;
+        var chance2 = 2;
+
+        function stageProgress(strength) {
+            if (chance1 == 2 && chance2 == 2) { // first shot
+                if (testSwing(strength)) {
+                    chance1 = 1;
+                }else{
+                    chance1 = 0;
+                }
+                location.reload(true);
+
+            } else if (chance1 == 1 && chance2 == 2) { //first success
+                
+            } else if (chance1 == 0 && chance2 == 2) { //second shot
+                if (testSwing(strength)) {
+                    chance1 = 1;
+                }else{
+                    chance1 = 0;
+                }
+                location.reload(true);
+
+            } else if (chance1 == 0 && chance2 == 1) { //second success
+
+            } else if (chance1 == 0 && chance2 == 0) { //fail
+
+            }
+        }
+        function testSwing(strength) {
+            console.log("strength = ", strength);
+
+        }
+
+    </script>
+    <div>stage1 . html </div>
+    <input type="button" value="testBtn" onclick="stageProgress(10)">
+</body>
+
+</html>
