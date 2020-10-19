@@ -11,17 +11,17 @@ function makeBall(){
 AFRAME.registerComponent('gateball', {
     //Initialization
     init:function () {
+
     },
     tick: function () {
         if(gate.body === undefined) makeBall();
-
+        console.log(gatePosition.x + " " + ball.body.position.x);
         if(ball.body.position.z < gatePosition.z){ //success
           txt2.setAttribute("value","success");
         }
         if(ball.body.velocity.x == 0){
             txt2.setAttribute("value","fail");
         }
-        
     }
   });
 
