@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head></head>
 
 <body>
-    <script src="/components/stage1.js"></script>
     <script>
+        var trying = 1;
         var chance1 = 2;
         var chance2 = 2;
 
@@ -34,14 +34,140 @@
 
             }
         }
-        function testSwing(strength) {
-            console.log("strength = ", strength);
 
+        function success() {
+            location.href = "gamemain.html"
+        }
+
+        function fail() {
+            trying = 2;
+            location.reload(true);
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .sucssessBtn {
+            position: absolute;
+            left: 30%;
+            top: 50%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            font-size: x-large;
+        }
+        .failBtn {
+            position: absolute;
+            left: 30%;
+            top: 60%;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            font-size: x-large;
+        }
+        .tryingTxt{
+            position: absolute;
+            left: 40%;
+            top: 20%;
+            font-size: x-large;
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Oculus Quest Input</title>
+    <meta name="description" content="Oculus Quest Input">
+
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.12.4/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <!--<script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>-->
+    <script
+        src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+
+    <script src="components/oculusgo.js"></script>
+    <script src="components/gateball.js"></script>
+    <link rel="stylesheet" type="text/css" href="../image/examples.css">
+
+</head>
+
+<body>
+    <script>
+        var trying = 1;
+
+        function success() {
+            console.log("success func");
+
+            location.href = "gamemain.html"
+        }
+
+        function fail() {
+            location.reload(true);
+            console.log("fail func");
+            trying = 2;
+            document.getElementById("tryingNum").innerText = trying;
         }
 
     </script>
-    <div>stage1 . html </div>
-    <input type="button" value="testBtn" onclick="stageProgress(10)">
+
+    <a-scene physics=" iterations: 20;" canvas avatar-recorder touch-to-click-converter>
+
+        <a-assets>
+            <img id=ground src="/image/ground.jpg" />
+
+            <img id=sky src="/image/sky4.jpg" />
+
+            <a-mixin id="pointer" raycaster="showLine: true; objects: .stick, a-link" super-hands="colliderEvent: raycaster-intersection;
+                               colliderEventProperty: els;
+                               colliderEndEvent:raycaster-intersection-cleared;
+                               colliderEndEventProperty: clearedEls;">
+            </a-mixin>
+            <a-mixin id="controller-right" mixin="pointer" vive-controls="hand: right"
+                oculus-touch-controls="hand: right" windows-motion-controls="hand: right" gearvr-controls
+                daydream-controls oculus-go-controls>
+            </a-mixin>
+            <a-mixin id="controller-left" mixin="pointer" vive-controls="hand: left" oculus-touch-controls="hand: left"
+                windows-motion-controls="hand: left">
+            </a-mixin>
+        </a-assets>
+
+
+        <!-- sky -->
+        <a-sky src="#sky"></a-sky>
+
+        <!-- ground -->
+        <a-plane src="#ground" scale="50 50 1" repeat="100 100 10" rotation="-90 0 0" color="#E8D9FF" position="1 -2 5"
+            static-body></a-plane>
+
+        <!-- gate -->
+        <a-box id="gate" position="0 -2 -3" width="1" height="3" wireframe="true" rotation="0 90 0" shadow></a-box>
+
+        <!-- gate ball -->
+        <a-sphere id="ball" gateball position="0 1.3 0"
+            dynamic-body="mass: 50; linearDamping: 0.0001; angularDamping: 0.3" radius="0.2" color="#afa"></a-sphere>
+
+        <!-- stick -->
+        <a-cylinder class="stick" position="0 1.5 1" hoverable grabbable draggable droppable dynamic-body="mass: 50;"
+            rotation="-90 0 0" radius="0.4" color="#000000"></a-cylinder>
+
+        <!-- controller -->
+        <a-entity>
+            <a-entity id="ctlR" input-listener mixin="controller-right"></a-entity>
+            <a-entity id="ctlL" input-listener mixin="controller-left"></a-entity>
+        </a-entity>
+
+        <a-entity camera look-controls position="0 1.6 0">
+            <a-text id="txt" value="skt" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
+            <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000">
+            </a-text>
+        </a-entity>
+    </a-scene>
+
+    <div id = "tryingNum" class="tryingTxt"></div>
+    <input type="button" value="success" onclick="success()" class="sucssessBtn"> 
+    <input type="button" value="fail" onclick="fail()" class="failBtn">
+
 </body>
 
 </html>
