@@ -4,8 +4,24 @@ var gatePosition;
 
 var txt2;
 
-function makeBall(){
-    ball.body.applyLocalImpulse( new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0));
+function makeBall() {
+    ball.body.applyLocalImpulse(new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0));
+}
+
+var trying = 1;
+
+function st1success() {
+    console.log("success func");
+
+    location.href = "gamemain.html"
+}
+
+function st1fail() {  // 성공 실패 함수 gateball.js 로 옮기고 실패 시 랜더링만 다시 하는 걸로 수정
+    location.reload(true);
+    console.log("fail func");
+    trying = 2;
+    document.getElementById("tryingNum").innerText = trying;
+    this.render
 }
 
 AFRAME.registerComponent('gateball', {

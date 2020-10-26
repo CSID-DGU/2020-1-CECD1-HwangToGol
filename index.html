@@ -4,16 +4,30 @@
 <head>
   <style>
     body {
-      background-image: url(/image/gateball.jpg);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
+      background-image: url(./image/gateball.jpg);
+      background-size: cover;
     }
 
-    .title-style {
+    .title-style1{
       font-size: xx-large;
+      color:#FFFFFF; 
       position: absolute;
-      left: 45%;
+      font-weight:bold; 
+      font-size: 50pt;
+      left: 30%;
       top: 20%;
+      border: none;
+      background: transparent;
+    }
+
+    .title-style2{
+      font-size: xx-large;
+      color:#FFFFFF; 
+      position: absolute;
+      font-weight:bold; 
+      font-size: 50pt;
+      left: 33%;
+      top: 28%;
       border: none;
       background: transparent;
     }
@@ -50,14 +64,14 @@
       location.href = "gamemain.html"
     }
   </script>
-
-  <input type="text" name="titleTxt" value="Game Title" class="title-style">
+  <input type="text" name="titleTxt" value="ENJOY GATEBALL" style = "width: 800px; height: 100px;" class = "title-style1">
+  <input type="text" name="titleTxt" value="IN YOUR ROOM!" style = "width: 800px; height: 100px;" class = "title-style2">
   <div id="StartGameBtn">
-    <input type="button" name="startBtn" value="Start Game" style="width: 300px; height: 60px;" class="button-box"
+    <input type="button" name="startBtn" value="Start Game" style="position: relative; width: 300px; height: 60px;" class="button-box"
       onclick="goGameMain()">
   </div>
   <div id="EndGameBtn">
-    <input type="button" name="endBtn" value="End Game" style="width: 300px; height: 60px;" class="button-box">
+    <input type="button" name="endBtn" value="End Game" style="position: relative; width: 300px; height: 60px;" class="button-box">
   </div>
 </body>
 
