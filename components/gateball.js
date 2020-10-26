@@ -11,6 +11,7 @@ function makeBall(){
 AFRAME.registerComponent('gateball', {
     //Initialization
     init:function () {
+
     },
     tick: function () {
         if(gate.body === undefined) makeBall();
@@ -56,7 +57,7 @@ AFRAME.registerComponent('gateball', {
 
   window.onload = function () {
       ball = document.getElementById('ball');
-      gate = document.getElementById('gate');
+      gate = document.getElementById('middleGate');
       gatePosition = gate.getAttribute('position');
      
       txt2 = document.getElementById('txt2');

@@ -17,13 +17,17 @@
     <link rel="stylesheet" type="text/css" href="../image/examples.css">
   </head>
   <body>
-    <a-scene physics=" iterations: 50;" canvas avatar-recorder
+    <a-scene physics=" iterations: 20;" canvas avatar-recorder
       touch-to-click-converter>
 
       <a-assets>
-        <img id=ground src="/image/ground.jpg" />
+        <img id=ground1 src="/image/ground.jpg" />
         
         <img id=sky src="/image/sky4.jpg" />
+
+        <img id=sphere src="/image/golfball.jpg"/>
+
+        
 
         <a-mixin id="pointer" raycaster="showLine: true; objects: .stick, a-link"
                   super-hands="colliderEvent: raycaster-intersection;
@@ -48,43 +52,61 @@
     
       <!-- ground -->
       <a-plane 
-        src="#ground" 
+        src="#ground1" 
         scale="50 50 1" 
-        repeat="100 100 10" 
+        repeat="10 10 1" 
         rotation="-90 0 0" 
-        color="#E8D9FF" 
         position="1 -2 5"
         static-body
       ></a-plane> 
 
-      <!-- gate -->
+      <!-- gate 3개 box :고인돌 느낌 -->
+      <!-- left box-->
       <a-box 
-        id="gate"   
-        position="0 -2 -3" 
-        width="1" height="3" 
-        wireframe ="true"
-        rotation="0 90 0" shadow
+        id="leftGate"   
+        position="-1 -2 -3"
+        width="0.1" depth ="0.1" height="3" 
+        rotation="0 90 0" 
       ></a-box>
+
+      <!--right box-->
+      <a-box 
+        id="rightGate"   
+        position="1 -2 -3" 
+        width="0.1" depth ="0.1" height="3" 
+        rotation="0 90 0" 
+      ></a-box>
+
+      <!-- 가운데 -->
+      <a-box 
+        id="middleGate"   
+        position="0 -0.5 -3" 
+        width="2.1" depth ="0.1" height="0.1" 
+        rotation="0 0 0"
+      ></a-box>
+
 
       <!-- gate ball -->
       <a-sphere 
+        src="#sphere"
         id="ball" 
         gateball
         position="0 1.3 0"
+        rotation="80 150 0"
         dynamic-body="mass: 50; linearDamping: 0.0001; angularDamping: 0.3"  
         radius="0.2" 
-        color="#afa"
       ></a-sphere>
       
       <!-- stick -->
       <a-cylinder   
         class="stick" 
         position="0 1.5 1" 
+        height="0.3"
         hoverable grabbable draggable droppable
         dynamic-body="mass: 50;"  
         rotation="-90 0 0" 
-        radius="0.4" 
-        color="#000000"
+        radius="0.2" 
+        color="gray"
       ></a-cylinder>
 
       <!-- controller -->
@@ -111,11 +133,10 @@
       ></a-entity>
       -->
       <!-- print controller position -->
-      <a-entity camera look-controls position="0 1.6 0">
+      <a-entity camera look-controls position="-1 1.75 0">
         <a-text id="txt" value="skt" position="0 0 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
         <a-text id="txt2" value="" position="0 -0.15 -1" scale="0.4 0.4 0.4" align="center" color="#000000"></a-text>
       </a-entity>
     </a-scene>   
   </body>
 </html>
-
