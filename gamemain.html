@@ -159,85 +159,134 @@
 <html>
 
 <head>
-    <style>
-        body {
-            /* background-image: url(/image/gateball.jpg);
-            background-repeat : no-repeat;
-		        background-size : 100% 100%; */
-        }
+  <style>
+    body {
+      background-image: url(./image/gateball.jpg);
+      background-size: cover;
+    }
 
-        .title-style {
-            font-size: xx-large;
-            position: absolute;
-            left: 40%;
-            top: 20%;
-            border: none;
-            background: transparent;
-        }
+    .title-style {
+      font-size: xx-large;
+      color: #FFFFFF;
+      position: absolute;
+      font-weight: bold;
+      font-size: 50pt;
+      left: 17%;
+      top: 20%;
+      border: none;
+      background: transparent;
+    }
 
-        .button-box {
-            font-size: x-large;
-            border-radius: 40px 40px 40px 40px;
-        }
+    .button-box {
+      font-size: x-large;
+      border-radius: 40px 40px 40px 40px;
+    }
 
-        div#stageBtn1 {
-            position: absolute;
-            left: 40%;
-            top: 50%;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-            font-size: x-large;
-        }
+    div#stageBtn1 {
+      position: absolute;
+      left: 10%;
+      top: 65%;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      font-size: x-large;
+    }
 
-        div#stageBtn2 {
-            position: absolute;
-            left: 40%;
-            top: 60%;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-            font-size: x-large;
-        }
+    div#stageBtn2 {
+      position: absolute;
+      left: 40%;
+      top: 65%;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      font-size: x-large;
+    }
 
-        div#stageBtn3 {
-            position: absolute;
-            left: 40%;
-            top: 70%;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-            font-size: x-large;
-        }
-    </style>
+    div#stageBtn3 {
+      position: absolute;
+      left: 70%;
+      top: 65%;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      font-size: x-large;
+    }
+
+    .description1{
+      font-size: xx-large;
+      color: #FFFFFF;
+      position: absolute;
+      font-weight: bold;
+      font-size: 30pt;
+      left: 16%;
+      top: 75%;
+      border: none;
+      background: transparent;
+
+    }
+
+    .description2{
+      font-size: xx-large;
+      color: #FFFFFF;
+      position: absolute;
+      font-weight: bold;
+      font-size: 30pt;
+      left: 44%;
+      top: 75%;
+      border: none;
+      background: transparent;
+
+    }
+
+    .description3{
+      font-size: xx-large;
+      color: #FFFFFF;
+      position: absolute;
+      font-weight: bold;
+      font-size: 30pt;
+      left: 70%;
+      top: 75%;
+      border: none;
+      background: transparent;
+
+    }
+  </style>
 </head>
 
 <body>
-    <script src="/components/gamemain.js"></script>
-    <script>
-        function goStage1() {
-            location.href = "stage1.html";
-        }
-        function goStage2() {
-            console.log("goStage2 func");
-            location.href = "stage2.html";
-        }
-        function goStage3() {
-            console.log("goStage3 func");
-            location.href = "stage3.html";
-        }
-    </script>
+  <script src="/components/gamemain.js"></script>
+  <script>
+    function goStage1() {
+      location.href = "stage1.html";
+    }
+    function goStage2() {
+      console.log("goStage2 func");
+      location.href = "stage2.html";
+    }
+    function goStage3() {
+      console.log("goStage3 func");
+      location.href = "stage3.html";
+    }
+  </script>
 
-    <input type="text" name="titleTxt" value="Choose The Stage You Want!" class="title-style">
-    <div id="stageBtn1">
-        <input type="button" name="startBtn" value="Stage 1" style="width: 300px; height: 60px;" class="button-box"
-            onclick="goStage1()">
-    </div>
-    <div id="stageBtn2">
-        <input type="button" name="endBtn" value="Stage 2" style="width: 300px; height: 60px;" class="button-box"
-            onclick="goStage2()">
-    </div>
-    <div id="stageBtn3">
-        <input type="button" name="endBtn" value="Stage 3" style="width: 300px; height: 60px;" class="button-box"
-            onclick="goStage3()">
-    </div>
+  <input type="text" name="titleTxt" value="Choose The Stage You Want!" style="width: 1000px; height: 100px;"
+    onclick="goStage1()" class="title-style">
+
+  <div id="stageBtn1">
+    <input type="button" name="startBtn" value="Stage 1" style="width: 300px; height: 60px;" class="button-box"
+      onclick="goStage1()">
+  </div>
+  <input type = "text" name="stage1desc" value="Basic" class="description1">
+
+  <div id="stageBtn2">
+    <input type="button" name="endBtn" value="Stage 2" style="width: 300px; height: 60px;" class="button-box"
+      onclick="goStage2()">
+  </div>
+  <input type = "text" name="stage1desc" value="Easy(Far)" class="description2">
+
+  <div id="stageBtn3">
+    <input type="button" name="endBtn" value="Stage 3" style="width: 300px; height: 60px;" class="button-box"
+      onclick="goStage3()">
+  </div>
+  <input type = "text" name="stage1desc" value="Top(Far & Wind)" class="description3">
+  
 </body>
 
 </html>
