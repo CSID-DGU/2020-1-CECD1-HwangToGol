@@ -14,20 +14,16 @@
     
     <script src="components/oculusgo.js"></script>
     <script src="components/gateball.js"></script>
-    <link rel="stylesheet" type="text/css" href="../image/examples.css">
+    <link rel="stylesheet" type="text/css" href="./image/examples.css">
   </head>
   <body>
     <a-scene physics=" iterations: 20;" canvas avatar-recorder
       touch-to-click-converter>
 
       <a-assets>
-        <img id=ground1 src="/image/ground.jpg" />
-        
-        <img id=sky src="/image/sky4.jpg" />
-
-        <img id=sphere src="/image/golfball.jpg"/>
-
-        
+        <img id=ground1 src="./image/ground1.jpg" />
+        <img id=sky src="./image/sky4.jpg" />
+        <img id=ballImage src="./image/golfball.jpg"/>
 
         <a-mixin id="pointer" raycaster="showLine: true; objects: .stick, a-link"
                   super-hands="colliderEvent: raycaster-intersection;
@@ -88,20 +84,20 @@
 
       <!-- gate ball -->
       <a-sphere 
-        src="#sphere"
+        src="#ballImage"
         id="ball" 
-        gateball
         position="0 1.3 0"
         rotation="80 150 0"
-        dynamic-body="mass: 50; linearDamping: 0.0001; angularDamping: 0.3"  
+        dynamic-body="mass: 50; linearDamping: 0.09; angularDamping: 0.001"  
         radius="0.2" 
       ></a-sphere>
       
       <!-- stick -->
       <a-cylinder   
         class="stick" 
+        stick
         position="0 1.5 1" 
-        height="0.3"
+        height="0.8"
         hoverable grabbable draggable droppable
         dynamic-body="mass: 50;"  
         rotation="-90 0 0" 

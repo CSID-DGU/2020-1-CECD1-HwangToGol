@@ -14,16 +14,15 @@
     
     <script src="components/oculusgo.js"></script>
     <script src="components/gateball.js"></script>
-    <link rel="stylesheet" type="text/css" href="../image/examples.css">
   </head>
   <body>
     <a-scene physics=" iterations: 50;" canvas avatar-recorder
       touch-to-click-converter>
 
       <a-assets>
-        <img id=ground src="/image/ground.jpg" />
+        <img id=ground src="./image/ground.jpg" />
         
-        <img id=sky src="/image/sky4.jpg" />
+        <img id=sky src="./image/sky4.jpg" />
 
         <a-mixin id="pointer" raycaster="showLine: true; objects: .stick, a-link"
                   super-hands="colliderEvent: raycaster-intersection;

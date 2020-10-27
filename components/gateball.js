@@ -5,17 +5,20 @@ var gatePosition;
 var txt2;
 
 function makeBall(){
-    ball.body.applyLocalImpulse( new CANNON.Vec3(0, 0, 0), new CANNON.Vec3(0, 0, 0));
+    ball.body.applyImpulse(
+        /* impulse */        new CANNON.Vec3(0, 1, -1),
+        /* world position */ new CANNON.Vec3().copy(ball.getAttribute('position'))
+      );
 }
 
-AFRAME.registerComponent('gateball', {
+AFRAME.registerComponent('stick', {
     //Initialization
     init:function () {
 
     },
     tick: function () {
-        if(gate.body === undefined) makeBall();
-
+        if(ball.body === undefined) makeBall();
+       
         // if(ball.body.position.z < gatePosition.z){ //success
         //   txt2.setAttribute("value","success");
         // }
@@ -52,6 +55,7 @@ AFRAME.registerComponent('gateball', {
 
   window.onload = function () {
       ball = document.getElementById('ball');
+      
       gate = document.getElementById('middleGate');
       gatePosition = gate.getAttribute('position');
      
