@@ -77,9 +77,9 @@ function toast(string) {
 function st1success() {
     console.log("success func");
     toast("축하합니다~! 성공하셨습니다!");
-    location.href = "gamemain.html";
-
+    setTimeout("location.href='gamemain.html'",3000);
 }
+
 function st1fail() {
     console.log("fail test - gateball.js");
     
@@ -99,7 +99,7 @@ window.onload = function () {
     leftgate = document.getElementById('leftGate');
     rightgate = document.getElementById('rightGate');
     midgate = document.getElementById('middleGate');
-    gatePosition = gate.getAttribute('position');
+    // gatePosition = gate.getAttribute('position');
 
     txt2 = document.getElementById('txt2');
 }    
