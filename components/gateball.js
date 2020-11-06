@@ -28,32 +28,32 @@ AFRAME.registerComponent('stick', {
 
         if(ball.body.position.z >= gatePosition.z && ball.body.position.x == gatePosition.x){ //성공 시
             txt2.setAttribute("value", "if 1 success");
-            st1success();
+            //st1success();
         }
 
         if(ball.body.position.z > gatePosition.z && ball.body.position.x < gatePosition.x){ // 1 - gate 보다 왼쪽으로 덜 감 
             txt2.setAttribute("value", "if 2 fail");
-            st1fail();
+            //st1fail();
         }
         
         if(ball.body.position.z > gatePosition.z && ball.body.position.x == gatePosition.x){ // 2 - gate 방향으로 덜 감
             txt2.setAttribute("value", "if 3 fail");
-            st1fail();
+            //st1fail();
         }
 
         if(ball.body.position.z > gatePosition.z && ball.body.position.x > gatePosition.x){ // 3 - gate 보다 오른쪽으로 덜 감
             txt2.setAttribute("value", "if 4 fail");
-            st1fail();
+            //st1fail();
         }
 
         if(ball.body.position.z < gatePosition.z && ball.body.position.x < gatePosition.x){ // 4 - gate 보다 왼쪽으로 더 감 
             txt2.setAttribute("value", "if 5 fail");
-            st1fail();
+            //st1fail();
         }
         
         if(ball.body.position.z < gatePosition.z && ball.body.position.x > gatePosition.x){ // 5 - gate 보다 오른쪽으로 더 감
             txt2.setAttribute("value", "if 6 fail");
-            st1fail();
+            //st1fail();
         }
     }
   });
