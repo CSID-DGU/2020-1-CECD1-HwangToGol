@@ -175,6 +175,9 @@
       top: 20%;
       border: none;
       background: transparent;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .button-box {
@@ -215,7 +218,7 @@
       position: absolute;
       font-weight: bold;
       font-size: 30pt;
-      left: 16%;
+      left: 17%;
       top: 75%;
       border: none;
       background: transparent;
@@ -228,7 +231,7 @@
       position: absolute;
       font-weight: bold;
       font-size: 30pt;
-      left: 44%;
+      left: 43%;
       top: 75%;
       border: none;
       background: transparent;
@@ -241,7 +244,7 @@
       position: absolute;
       font-weight: bold;
       font-size: 30pt;
-      left: 70%;
+      left: 68%;
       top: 75%;
       border: none;
       background: transparent;
@@ -266,26 +269,26 @@
     }
   </script>
 
-  <input type="text" name="titleTxt" value="Choose The Stage You Want!" style="width: 1000px; height: 100px;"
+  <input type="text" name="titleTxt" value="원하는 단계를 선택하세요!" style="width: 700px; height: 100px;"
     onclick="goStage1()" class="title-style">
 
   <div id="stageBtn1">
-    <input type="button" name="startBtn" value="Stage 1" style="width: 300px; height: 60px;" class="button-box"
+    <input type="button" name="startBtn" value="단계 1" style="width: 300px; height: 60px;" class="button-box"
       onclick="goStage1()">
   </div>
-  <input type = "text" name="stage1desc" value="Basic" class="description1">
+  <input type = "text" name="stage1desc" value="기초" class="description1">
 
   <div id="stageBtn2">
-    <input type="button" name="endBtn" value="Stage 2" style="width: 300px; height: 60px;" class="button-box"
+    <input type="button" name="endBtn" value="단계 2" style="width: 300px; height: 60px;" class="button-box"
       onclick="goStage2()">
   </div>
-  <input type = "text" name="stage1desc" value="Easy(Far)" class="description2">
+  <input type = "text" name="stage1desc" value="쉬움(먼 거리)" class="description2">
 
   <div id="stageBtn3">
-    <input type="button" name="endBtn" value="Stage 3" style="width: 300px; height: 60px;" class="button-box"
+    <input type="button" name="endBtn" value="단계 3" style="width: 300px; height: 60px;" class="button-box"
       onclick="goStage3()">
   </div>
-  <input type = "text" name="stage1desc" value="Top(Far & Wind)" class="description3">
+  <input type = "text" name="stage1desc" value="어려움(먼거리 & 바람)" class="description3">
   
 </body>
 

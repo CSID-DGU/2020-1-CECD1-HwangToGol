@@ -80,15 +80,13 @@ function st1success() {
     setTimeout("location.href='gamemain.html'",3000);
 }
 
-function st1fail() {
+function st1fail(failmsg) {
     console.log("fail test - gateball.js");
     
     ball.body.position = "0 1.3 0";
-    // leftgate.body.position = "-1 -2 -10";
-    // rightgate.body.position = "1 -2 -10";
-    // midgate.body.position = "0 -0.5 -10";
+    console.log("새로운 위치 : ", ball.body.position);
 
-    toast("Fail,,");
+    toast(failmsg);
     // document.getElementById('gateandball').style.display = 'none';
     // document.getElementById('ball').style.display = 'block';
 }
