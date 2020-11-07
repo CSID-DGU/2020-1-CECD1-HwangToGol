@@ -4,6 +4,7 @@ var midgate;
 var ball;
 var gatePosition;
 let removeToast;
+var chance = 0;
 
 var txt2;
 
@@ -21,9 +22,22 @@ AFRAME.registerComponent('stick', {
     tick: function () {
         if (ball.body === undefined) makeBall();
 
-        // if(ball.body.position.z < gatePosition.z){ //success
-        //   txt2.setAttribute("value","success");
-        // }
+        var timer = setTimeout(function () {
+            if (chance == 0) {
+                // console.log("ball 위치 : ", ball.body.position);
+                // console.log("gate 위치 : ", midgate.position);
+                if (ball.body.position.z < midgatePosition.z) { //success
+                    console.log("success if 안");
+                    st1success();
+                } else {
+                    st1fail("실패입니다, 다시 한번 도전해보세요!");
+                }
+                chance += 1;
+                clearTimeout(timer);
+            }
+        }, 7000);
+
+
         // if(ball.body.velocity.x == 0){
         //     txt2.setAttribute("value","fail");
         // }
@@ -77,18 +91,17 @@ function toast(string) {
 function st1success() {
     console.log("success func");
     toast("축하합니다~! 성공하셨습니다!");
-    setTimeout("location.href='gamemain.html'",3000);
+    setTimeout("location.href='gamemain.html'", 3000);
 }
 
 function st1fail(failmsg) {
-    console.log("fail test - gateball.js");
-    
-    ball.body.position = "0 1.3 0";
-    console.log("새로운 위치 : ", ball.body.position);
-
+    console.log("st1fail");
     toast(failmsg);
-    // document.getElementById('gateandball').style.display = 'none';
-    // document.getElementById('ball').style.display = 'block';
+    // ball.body.position = "0 1.3 -1";
+    ball.body.position.x = 0;
+    ball.body.position.y = 1.3;
+    ball.body.position.x = -5;
+
 }
 
 window.onload = function () {
@@ -97,7 +110,7 @@ window.onload = function () {
     leftgate = document.getElementById('leftGate');
     rightgate = document.getElementById('rightGate');
     midgate = document.getElementById('middleGate');
-    // gatePosition = gate.getAttribute('position');
+    midgatePosition = midgate.getAttribute('position');
 
     txt2 = document.getElementById('txt2');
 }    
