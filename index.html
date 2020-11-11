@@ -10,53 +10,30 @@
     }
     .title-style1 {
       font-size: xx-large;
-      color: #000000;
-      position: absolute;
-      font-weight: bold;
-      font-size: 50pt;
-      left: 30%;
-      top: 20%;
-      border: none;
-      background: transparent;
-      width: 800px;
-      height: 100px;
-    }
-
-    .title-style2 {
-      font-size: xx-large;
       color: #FFFFFF;
       position: absolute;
       font-weight: bold;
       font-size: 50pt;
-      left: 33%;
-      top: 28%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 20%;
+      border: none;
+      background: transparent;
+      width: 900px;
+    }
+
+    .title-style2 {
+      font-size: x-large;
+      color: #FFFFFF;
+      position: absolute;
+      font-weight: bold;
+      font-size: 30pt;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 30%;
       border: none;
       background: transparent;
       width: 800px;
-      height: 100px;
-    }
-
-    .button-box {
-      font-size: x-large;
-      border-radius: 40px 40px 40px 40px;
-    }
-
-    div#StartGameBtn {
-      position: fixed;
-      left: 570px;
-      top: 550px;
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-      font-size: x-large;
-    }
-
-    div#EndGameBtn {
-      position: fixed;
-      left: 570px;
-      top: 630px;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      font-size: large;
     }
 
     .gamestartBtn {
@@ -93,14 +70,13 @@
     <a-sky src="#sky"></a-sky>
     <a-plane src="#ground1" scale="50 50 1" repeat="10 10 1" rotation="-90 0 0" position="1 -2 5" static-body></a-plane>
 
-    <a-entity position="0 2 0">
+    <!-- <a-entity position="0 2 0">
       <a-text id="txt1" value="ENJOY GATEBALL" position="0 0  -1" scale="0.9 0.9 1" align="center"  color="#FFFFFF"></a-text>
     </a-entity>
 
     <a-entity position="0 1.85 0">
       <a-text id="txt2" value="IN YOUR ROOM!"  position="0 0  -1" scale="0.9 0.9 1" align="center" color="#FFFFFF"></a-text>
-    </a-entity>
-    
+    </a-entity> -->
     <!--<a-text id = "title-style1" value = "ENJOY GATEBALL" class="title-style1"></a-text>
     <a-text id = "title-style2" value = "IN YOUR ROOM!" class="title-style2"></a-text> -->
 
@@ -115,6 +91,8 @@
         class="button-box">
     </div>-->
   </a-scene>
+  <input type = "text" name="txt1" value="방 안에서 게이트볼을 즐겨보세요!" class="title-style1" >
+  <input type = "text" name="txt2" value="게임 시작하기 버튼을 눌러 시작할 수 있습니다." class="title-style2" >
   <input id="gamestartBtn" type="button" value="게임 시작하기" onclick="goGameMain()" class="gamestartBtn">
 </body>
 
