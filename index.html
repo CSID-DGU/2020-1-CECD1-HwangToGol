@@ -55,15 +55,19 @@
       font-size: large;
     }
   </style>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    
 </head>
 
 <body>
   <script>
-
+    
     function goGameMain() {
       location.href = "gamemain.html"
     }
   </script>
+  <a-scene>
+    <a-box></a-box>
   <input type="text" name="titleTxt" value="ENJOY GATEBALL" style = "width: 800px; height: 100px;" class = "title-style1">
   <input type="text" name="titleTxt" value="IN YOUR ROOM!" style = "width: 800px; height: 100px;" class = "title-style2">
   <div id="StartGameBtn">
@@ -73,6 +77,7 @@
   <div id="EndGameBtn">
     <input type="button" name="endBtn" value="End Game" style="position: relative; width: 300px; height: 60px;" class="button-box">
   </div>
+</a-scene>
 </body>
 
 </html>
