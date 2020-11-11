@@ -5,6 +5,7 @@ var midgate;
 var ball;
 var gatePosition;
 let removeToast;
+var chance = 0;
 
 var txt2;
 
@@ -22,46 +23,60 @@ AFRAME.registerComponent('stick', {
     tick: function () {
         if (ball.body === undefined) makeBall();
 
-        // if(ball.body.position.z < gatePosition.z){ //success
-        //   txt2.setAttribute("value","success");
-        // }
-        // if(ball.body.velocity.x == 0){
-        //     txt2.setAttribute("value","fail");
-        // }
+        var firsttimer = setTimeout(function () {
+            console.log("chance : ", chance);
+            if (chance == 0) {
+                if (ball.body.position.z < midgatePosition.z && 
+                    (ball.body.position.x < 1 && ball.body.position.x > -1)) { //success
+                    st1success();
+                }
 
-        // if (ball.body.position.z >= gatePosition.z && ball.body.position.x == gatePosition.x) { //성공 시
-        //     txt2.setAttribute("value", "if 1 success");
-        //     st1success();
-        // }
+                if(ball.body.position.z > midgatePosition.z) { //gate 까지 가지 못했을 때
+                    if(ball.body.position.x < 1 && ball.body.position.x > -1){
+                        st1fail("조금 세게 쳐보세요! 마지막 기회가 제공됩니다.");
+                    }
+                    if(ball.body.position.x < -1){
+                        st1fail("조금 더 오른쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.");
+                    }
+                    if(ball.body.position.x > 1){
+                        st1fail("조금 더 왼쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.");
+                    }
+                }
+                
+                if(ball.body.position.z < midgatePosition.z) {  //gate 넘어감 but 방향 다름
+                    if(ball.body.position.x < -1){ // gate 왼쪽으로 
+                        st1fail("조금 더 오른쪽으로 쳐보세요! 마지막 기회가 제공됩니다.");
+                    }
+                    if(ball.body.position.x > 1){  //gate 오른쪽으로
+                        st1fail("조금 더 왼쪽으로 쳐보세요! 마지막 기회가 제공됩니다.");
+                    }
+                }
+                chance += 1;
+                clearTimeout(firsttimer);
+            }
+        }, 10000);
 
-        // if (ball.body.position.z > gatePosition.z && ball.body.position.x < gatePosition.x) { // 1 - gate 보다 왼쪽으로 덜 감 
-        //     txt2.setAttribute("value", "if 2 fail");
-        //     st1fail();
-        // }
-
-        // if (ball.body.position.z > gatePosition.z && ball.body.position.x == gatePosition.x) { // 2 - gate 방향으로 덜 감
-        //     txt2.setAttribute("value", "if 3 fail");
-        //     st1fail();
-        // }
-
-        // if (ball.body.position.z > gatePosition.z && ball.body.position.x > gatePosition.x) { // 3 - gate 보다 오른쪽으로 덜 감
-        //     txt2.setAttribute("value", "if 4 fail");
-        //     st1fail();
-        // }
-
-        // if (ball.body.position.z < gatePosition.z && ball.body.position.x < gatePosition.x) { // 4 - gate 보다 왼쪽으로 더 감 
-        //     txt2.setAttribute("value", "if 5 fail");
-        //     st1fail();
-        // }
-
-        // if (ball.body.position.z < gatePosition.z && ball.body.position.x > gatePosition.x) { // 5 - gate 보다 오른쪽으로 더 감
-        //     txt2.setAttribute("value", "if 6 fail");
-        //     st1fail();
-        // }
+        if(chance == 1){
+            var secondtimer = setTimeout(function() {
+                console.log("chance : ", chance);
+                if(chance == 1){  //두번재 기회
+                    if (ball.body.position.z < midgatePosition.z && 
+                        (ball.body.position.x < 1 && ball.body.position.x > -1)) { //success
+                        st1success();
+                    }else{
+                        toast("실패입니다,, 이전 화면으로 돌아갑니다.");
+                        setTimeout("location.href='gamemain.html'", 3000);
+                    }
+                    chance += 1;
+                    clearTimeout(secondtimer);
+                }
+    
+            }, 13000);
+        }
     }
 });
 function toast(string) {
-    console.log('toast func');
+    console.log('toast func', string);
     const toast = document.getElementById("toast");
 
     toast.classList.contains("reveal") ?
@@ -76,22 +91,17 @@ function toast(string) {
 }
 
 function st1success() {
-    console.log("success func");
+    console.log("st1success");
     toast("축하합니다~! 성공하셨습니다!");
-    setTimeout("location.href='gamemain.html'",3000);
+    setTimeout("location.href='gamemain.html'", 3000);
 }
 
-function st1fail() {
-    console.log("fail test - gateball.js");
-    
-    ball.body.position = "0 1.3 0";
-    // leftgate.body.position = "-1 -2 -10";
-    // rightgate.body.position = "1 -2 -10";
-    // midgate.body.position = "0 -0.5 -10";
-
-    toast("Fail,,");
-    // document.getElementById('gateandball').style.display = 'none';
-    // document.getElementById('ball').style.display = 'block';
+function st1fail(failmsg) {
+    console.log(failmsg);
+    ball.body.position.x = 0;
+    ball.body.position.y = 1.3;
+    ball.body.position.z = 0;
+    toast(failmsg);
 }
 
 window.onload = function () {
@@ -100,6 +110,7 @@ window.onload = function () {
     leftgate = document.getElementById('leftGate');
     rightgate = document.getElementById('rightGate');
     midgate = document.getElementById('middleGate');
-    
+    midgatePosition = midgate.getAttribute('position');
+
     txt2 = document.getElementById('txt2');
 }    
