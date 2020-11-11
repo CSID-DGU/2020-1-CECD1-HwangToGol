@@ -60,9 +60,10 @@
     function goGameMain() {
       location.href = "gamemain.html"
     }
+
   </script>
 
-  <a-scene>
+  <a-scene gamestartButton>
     <a-assets>
       <img id=ground1 src="./image/ground1.jpg" />
       <img id=sky src="./image/sky4.jpg" />
@@ -70,9 +71,11 @@
     <a-sky src="#sky"></a-sky>
     <a-plane src="#ground1" scale="50 50 1" repeat="10 10 1" rotation="-90 0 0" position="1 -2 5" static-body></a-plane>
     <a-entity position="0 2 0">
-      <a-text id="txt1" value="ENJOY GATEBALL" position="0 0  -1" scale="0.9 0.9 1" align="center"  color="#FFFFFF"></a-text>
-      <a-text id="txt2" value="IN YOUR ROOM!" position="0 -0.2  -1" scale="0.9 0.9 1" align="center"  color="#FFFFFF"></a-text>
+      <a-text id="txt1" value="ENJOY GATEBALL" position="0 0  -1.5" scale="0.9 0.9 1" align="center"  color="#FFFFFF"></a-text>
+      <a-text id="txt2" value="IN YOUR ROOM!" position="0 -0.2  -1.5" scale="0.9 0.9 1" align="center"  color="#FFFFFF"></a-text>
     </a-entity>
+
+    <a-entity id="startBtn" value = "game start" geometry="primitive: box" material="color: blue" position="0 0 -2"></a-entity>
 
     <!-- <a-entity position="0 1.85 0">
       <a-text id="txt2" value="IN YOUR ROOM!"  position="0 0  -1" scale="0.9 0.9 1" align="center" color="#FFFFFF"></a-text>
@@ -91,7 +94,7 @@
         class="button-box">
     </div>-->
   </a-scene>
-  <input id="gamestartBtn" type="button" value="게임 시작하기" onclick="goGameMain()" class="gamestartBtn">
+  <!-- <input id="gamestartBtn" type="button" value="게임 시작하기" onclick="goGameMain()" class="gamestartBtn"> -->
 </body>
 
 </html>

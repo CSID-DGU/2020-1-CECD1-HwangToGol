@@ -1,7 +1,6 @@
 const body = document.querySelector('a-scene');
 const $ = (query) => body.querySelector(query);
 
-
 const animate = () => {
 
   const variation = Math.sin(Date.now() / 100); //how many milliseconds pass
