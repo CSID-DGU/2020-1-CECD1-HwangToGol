@@ -64,6 +64,8 @@ AFRAME.registerComponent('stick', {
                         st1success();
                     }else{
                         toast("실패입니다,, 이전 화면으로 돌아갑니다.");
+                        var failAudio = document.getElementById('fail_audio');
+                        failAudio.play();
                         setTimeout("location.href='gamemain.html'", 3000);
                     }
                     chance += 1;
@@ -92,6 +94,8 @@ function toast(string) {
 function st1success() {
     console.log("st1success");
     toast("축하합니다~! 성공하셨습니다!");
+    var successAudio = document.getElementById('success_audio');
+    successAudio.play();
     setTimeout("location.href='gamemain.html'", 3000);
 }
 
@@ -100,6 +104,25 @@ function st1fail(failmsg) {
     ball.body.position.x = 0;
     ball.body.position.y = 1.3;
     ball.body.position.z = 0;
+    
+    var failaudio;
+    if(failmsg == '조금 세게 쳐보세요! 마지막 기회가 제공됩니다.'){
+        failaudio = document.getElementById('less_power_audio');
+    }
+    if(failmsg == '조금 더 오른쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.'){
+        failaudio = document.getElementById('right_less_power_audio');
+    }
+    if(failmsg == '조금 더 왼쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.'){
+        failaudio = document.getElementById('left_less_power_audio');
+    }
+    if(failmsg == '조금 더 오른쪽으로 쳐보세요! 마지막 기회가 제공됩니다.'){
+        failaudio = document.getElementById('right_enough_power_audio');
+    }
+    if(failmsg == '조금 더 왼쪽으로 쳐보세요! 마지막 기회가 제공됩니다.'){
+        failaudio = document.getElementById('left_enough_power_audio');
+    }
+
+    failaudio.play();
     toast(failmsg);
 }
 
