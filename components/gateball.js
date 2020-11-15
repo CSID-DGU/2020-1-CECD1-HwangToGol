@@ -1,3 +1,4 @@
+
 var leftgate;
 var rightgate;
 var midgate;
