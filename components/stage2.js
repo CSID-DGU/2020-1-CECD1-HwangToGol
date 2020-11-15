@@ -53,7 +53,7 @@ AFRAME.registerComponent('stick', {
                 chance += 1;
                 clearTimeout(firsttimer);
             }
-        }, 10000);
+        }, 15000);
 
         if(chance == 1){
             var secondtimer = setTimeout(function() {
@@ -70,7 +70,7 @@ AFRAME.registerComponent('stick', {
                     clearTimeout(secondtimer);
                 }
     
-            }, 13000);
+            }, 18000);
         }
     }
 });

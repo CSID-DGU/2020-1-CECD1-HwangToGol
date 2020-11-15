@@ -20,7 +20,8 @@ AFRAME.registerComponent('stick', {
 
     },
     tick: function () {
-        if (ball.body === undefined) makeBall();
+        while (ball === undefined) {}
+        if(ball.body === undefined) makeBall();
 
         var firsttimer = setTimeout(function () {
             console.log("chance : ", chance);
@@ -53,7 +54,7 @@ AFRAME.registerComponent('stick', {
                 chance += 1;
                 clearTimeout(firsttimer);
             }
-        }, 10000);
+        }, 15000);
 
         if(chance == 1){
             var secondtimer = setTimeout(function() {
@@ -63,22 +64,25 @@ AFRAME.registerComponent('stick', {
                         (ball.body.position.x < 1 && ball.body.position.x > -1)) { //success
                         st1success();
                     }else{
-                        toast("실패입니다,, 이전 화면으로 돌아갑니다.");
+                        toast('#real_fail');
                         var failAudio = document.getElementById('fail_audio');
                         failAudio.play();
-                        setTimeout("location.href='gamemain.html'", 3000);
+                        // setTimeout("location.href='gamemain.html'", 3000);
                     }
                     chance += 1;
                     clearTimeout(secondtimer);
                 }
     
-            }, 13000);
+            }, 18000);
         }
     }
 });
 function toast(string) {
     console.log('toast func', string);
     const toast = document.getElementById("toast");
+    var solutionImg = document.getElementById("solutionImg");
+    solutionImg.setAttribute("src",string);
+    solutionImg.setAttribute("visible",true);
 
     toast.classList.contains("reveal") ?
         (clearTimeout(removeToast), removeToast = setTimeout(function () {
@@ -93,7 +97,8 @@ function toast(string) {
 
 function st1success() {
     console.log("st1success");
-    toast("축하합니다~! 성공하셨습니다!");
+    //toast("축하합니다~! 성공하셨습니다!");
+    toast("#success");
     var successAudio = document.getElementById('success_audio');
     successAudio.play();
     setTimeout("location.href='gamemain.html'", 3000);
@@ -108,22 +113,31 @@ function st1fail(failmsg) {
     var failaudio;
     if(failmsg == '조금 세게 쳐보세요! 마지막 기회가 제공됩니다.'){
         failaudio = document.getElementById('less_power_audio');
+        console.log(failaudio);
+        failaudio.play();
+        toast("#fail_power");
     }
     if(failmsg == '조금 더 오른쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.'){
         failaudio = document.getElementById('right_less_power_audio');
+        failaudio.play();
+        toast("#fail_right_power");
     }
     if(failmsg == '조금 더 왼쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.'){
         failaudio = document.getElementById('left_less_power_audio');
+        failaudio.play();
+        toast("#fail_left_power");
     }
     if(failmsg == '조금 더 오른쪽으로 쳐보세요! 마지막 기회가 제공됩니다.'){
         failaudio = document.getElementById('right_enough_power_audio');
+        failaudio.play();
+        toast("#fail_right");
     }
     if(failmsg == '조금 더 왼쪽으로 쳐보세요! 마지막 기회가 제공됩니다.'){
         failaudio = document.getElementById('left_enough_power_audio');
+        failaudio.play();
+        toast("#fail_left");
     }
 
-    failaudio.play();
-    toast(failmsg);
 }
 
 window.onload = function () {
