@@ -33,22 +33,22 @@ AFRAME.registerComponent('stick', {
 
                 if(ball.body.position.z > midgatePosition.z) { //gate 까지 가지 못했을 때
                     if(ball.body.position.x < 1 && ball.body.position.x > -1){
-                        st1fail("조금 세게 쳐보세요! 마지막 기회가 제공됩니다.");
+                        st1fail("조금 세게 쳐보세요! 마지막 기회가 제공됩니다.공과 게이트 사이의 거리는 "+distance+"입니다");
                     }
                     if(ball.body.position.x < -1){
-                        st1fail("조금 더 오른쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.");
+                        st1fail("조금 더 오른쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.공과 게이트 사이의 거리는 "+distance+"입니다");
                     }
                     if(ball.body.position.x > 1){
-                        st1fail("조금 더 왼쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.");
+                        st1fail("조금 더 왼쪽으로 세게 쳐보세요! 마지막 기회가 제공됩니다.공과 게이트 사이의 거리는 "+distance+"입니다");
                     }
                 }
                 
                 if(ball.body.position.z < midgatePosition.z) {  //gate 넘어감 but 방향 다름
                     if(ball.body.position.x < -1){ // gate 왼쪽으로 
-                        st1fail("조금 더 오른쪽으로 쳐보세요! 마지막 기회가 제공됩니다.");
+                        st1fail("조금 더 오른쪽으로 쳐보세요! 마지막 기회가 제공됩니다.공과 게이트 사이의 거리는 "+distance+"입니다");
                     }
                     if(ball.body.position.x > 1){  //gate 오른쪽으로
-                        st1fail("조금 더 왼쪽으로 쳐보세요! 마지막 기회가 제공됩니다.");
+                        st1fail("조금 더 왼쪽으로 쳐보세요! 마지막 기회가 제공됩니다.공과 게이트 사이의 거리는 "+distance+"입니다");
                     }
                 }
                 chance += 1;
