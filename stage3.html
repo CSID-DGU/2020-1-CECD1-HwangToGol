@@ -2,49 +2,6 @@
 <html>
 
 <head>
-  <style>
-    .sucbtn {
-      position: absolute;
-      left: 20%;
-      top: 30%;
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-      font-size: x-large;
-    }
-
-    .failBtn {
-      position: absolute;
-      left: 30%;
-      top: 60%;
-      border-top-left-radius: 15px;
-      border-bottom-left-radius: 15px;
-      font-size: x-large;
-    }
-
-    #toast {
-      position: fixed;
-      top: 30%;
-      left: 50%;
-      padding: 15px 20px;
-      transform: translate(-50%, 10px);
-      border-radius: 30px;
-      overflow: hidden;
-      font-size: xx-large;
-      font-weight: bold;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .5s, visibility .5s, transform .5s;
-      background: rgba(0, 0, 0, .35);
-      color: #fff;
-      z-index: 10000;
-    }
-
-    #toast.reveal {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, 0)
-    }
-  </style>
   <meta charset="utf-8">
   <title>Oculus Quest Input</title>
   <meta name="description" content="Oculus Quest Input">
@@ -53,9 +10,8 @@
   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.12.4/dist/aframe-extras.min.js"></script>
   <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
   <!--<script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>-->
-  <script
-    src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-
+  <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+ 
   <script src="components/stage1.js"></script>
   <link rel="stylesheet" type="text/css" href="./image/examples.css">
 </head>
@@ -140,6 +96,27 @@
   </a-scene>
   <!-- <input id="sucbtn" type="button" value="sucbtn" onclick="st1success()" class="failBtn">
   <input id="failbtn" type="button" value="fail" onclick="st1fail()" class="failBtn"> -->
+  <audio id="success_audio" >
+    <source src="./audio/success.wav" type="audio/wav">
+  </audio>
+  <audio id="fail_audio" >
+    <source src="./audio/fail_goback.wav" type="audio/wav">
+  </audio>
+  <audio id="less_power_audio" >
+    <source src="./audio/less_power.wav" type="audio/wav">
+  </audio>
+  <audio id="right_less_power_audio" >
+    <source src="./audio/right_less_power.wav" type="audio/wav">
+  </audio>
+  <audio id="left_less_power_audio" >
+    <source src="./audio/left_less_power.wav" type="audio/wav">
+  </audio>
+  <audio id="right_enough_power_audio" >
+    <source src="./audio/right_enough_power.wav" type="audio/wav">
+  </audio>
+  <audio id="left_enough_power_audio" >
+    <source src="./audio/left_enough_power.wav" type="audio/wav">
+  </audio>
 </body>
 
 </html>
